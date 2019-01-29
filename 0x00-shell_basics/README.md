@@ -1,0 +1,1 @@
+This is a script to show the absolute path of where the script is run.
