@@ -1,0 +1,1 @@
+This directory contains shell sciprts that demonstrate ways to script permission modification commands.
