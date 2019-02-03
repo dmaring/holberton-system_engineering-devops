@@ -1,0 +1,2 @@
+#!/bin/bash
+sort | uniq --check-chars=15 --count | sort --key=1 --numeric-sort | cut -f 1 | cut -c 9- | head -n 11
