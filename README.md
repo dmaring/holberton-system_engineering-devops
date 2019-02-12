@@ -1,8 +1,7 @@
 # Holberton - Systems Engineering Devops
 > Bash script examples for common Systems Engineering Devops Tasks
 
-This repo contains bash scripts used in the Systems Engineering Devops course material of the [Holberton School](http://www.holbertonschool.com) curriculum.
-
+This repo contains DevOps related bash scripts.
 ## Usage example
 Make sure that the script is executable.
 
