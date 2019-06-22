@@ -2,7 +2,6 @@
 # A bash script that displays Holberton School 10 times using while
 
 i=0
-
 while (( i < 10 )); do
     echo "Holberton School"
     ((i++))
