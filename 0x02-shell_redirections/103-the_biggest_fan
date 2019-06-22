@@ -1,2 +1,2 @@
 #!/bin/bash
-sort | uniq --check-chars=15 --count | sort --key=1 --numeric-sort | cut -f 1 | head -n 11
+cut -f 1 | tail -n +2 | sort | uniq -c | sort -nr | head | cut -d " " -f 6
