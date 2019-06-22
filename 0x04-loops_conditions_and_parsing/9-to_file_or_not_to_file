@@ -5,9 +5,9 @@ file="./holbertonschool"
 if [[ -e $file ]]; then
     echo "$file file exists"
     if [[ ! -s $file ]]; then
-	echo "$file is empty"
+	echo "$file file is empty"
     elif [[ -s $file ]]; then
-	echo "$file is not empty"
+	echo "$file file is not empty"
     fi
     if [[ -f $file ]]; then
 	echo "$file is a regular file"
