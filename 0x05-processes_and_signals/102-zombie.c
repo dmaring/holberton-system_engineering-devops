@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 
 /**
  * infinite_while - keep zombie PIDs alive
@@ -21,44 +20,19 @@ int infinite_while(void)
  *
  * Return: void
  */
-void main(void)
+int main(void)
 {
 	pid_t childPid;
 	int i;
 
-	childPid = fork();
-	if (childPid == 0)
+	for (i = 0; i < 5; i++)
 	{
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
-	}
-
-	childPid = fork();
-	if (childPid == 0)
-	{
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
-	}
-
-	childPid = fork();
-	if (childPid == 0)
-	{
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
-	}
-
-	childPid = fork();
-	if (childPid == 0)
-	{
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
-	}
-
-	childPid = fork();
-	if (childPid == 0)
-	{
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
+		childPid = fork();
+		if (childPid == 0)
+		{
+			printf("Zombie process created, PID: %i\n", getpid());
+			exit(0);
+		}
 	}
 	infinite_while();
 }
