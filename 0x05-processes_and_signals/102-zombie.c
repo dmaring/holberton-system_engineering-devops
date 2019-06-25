@@ -17,35 +17,48 @@ int infinite_while(void)
 }
 
 /**
- * create_zombie - create a new zombie process
- *
- * Return: void
- */
-void create_zombie(void)
-{
-	pid_t childPid;
-
-	switch (childPid = fork())
-	{
-	case 0:
-		printf("Zombie process created, PID: %i\n", getpid());
-		_exit(EXIT_SUCCESS);
-	default:
-		sleep(1);
-	}
-}
-
-/**
  * main - creates 5 zombie processes
  *
  * Return: void
  */
 void main(void)
 {
+	pid_t childPid;
 	int i;
 
-	for (i = 0; i < 5; i++)
-		create_zombie();
+	childPid = fork();
+	if (childPid == 0)
+	{
+		printf("Zombie process created, PID: %i\n", getpid());
+		_exit(EXIT_SUCCESS);
+	}
 
+	childPid = fork();
+	if (childPid == 0)
+	{
+		printf("Zombie process created, PID: %i\n", getpid());
+		_exit(EXIT_SUCCESS);
+	}
+
+	childPid = fork();
+	if (childPid == 0)
+	{
+		printf("Zombie process created, PID: %i\n", getpid());
+		_exit(EXIT_SUCCESS);
+	}
+
+	childPid = fork();
+	if (childPid == 0)
+	{
+		printf("Zombie process created, PID: %i\n", getpid());
+		_exit(EXIT_SUCCESS);
+	}
+
+	childPid = fork();
+	if (childPid == 0)
+	{
+		printf("Zombie process created, PID: %i\n", getpid());
+		_exit(EXIT_SUCCESS);
+	}
 	infinite_while();
 }
