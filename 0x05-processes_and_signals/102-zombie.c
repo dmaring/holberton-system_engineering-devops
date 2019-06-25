@@ -2,20 +2,6 @@
 #include <stdlib.h>
 
 /**
- * infinite_while - keep zombie PIDs alive
- *
- * Return: 0 on success
- */
-int infinite_while(void)
-{
-	while (1)
-	{
-		sleep(1);
-	}
-	return (0);
-}
-
-/**
  * main - creates 5 zombie processes
  *
  * Return: void
@@ -34,5 +20,10 @@ int main(void)
 			exit(0);
 		}
 	}
-	infinite_while();
+
+	while (1)
+	{
+		sleep(1);
+	}
+	return (0);
 }
