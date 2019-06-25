@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 /**
  * main - creates 5 zombie processes
  *
  * Return: void
  */
+
 int main(void)
 {
 	pid_t childPid;
