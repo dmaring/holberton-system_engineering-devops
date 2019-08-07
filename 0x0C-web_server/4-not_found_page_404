@@ -4,7 +4,6 @@ sudo apt update -y && sudo apt install -y nginx
 echo "Holberton School" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 newtext="rewrite ^/redirect_me https://www.youtube.com/watch?v=jyknCVczn3Q permanent;"
-errortext="error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;\n internal;}"
 sed -i "/listen 80 default_server/a $newtext" /etc/nginx/sites-available/default
-sed -i "/listen 80 default_server/a $errortext" /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server/a error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;\n internal;}' /etc/nginx/sites-available/default
 service nginx start
