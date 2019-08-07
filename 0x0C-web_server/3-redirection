@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # a script that installs nginx and configures index.html
-apt-get update -y && sudo apt-get install -y nginx &&
+apt update -y && sudo apt install -y nginx &&
     mkdir -p /var/www/html/ &&
     echo "Holberton School" | tee /var/www/html/index.html &&
     newtext="rewrite ^/redirect_me https://www.youtube.com/watch?v=jyknCVczn3Q permanent;"
