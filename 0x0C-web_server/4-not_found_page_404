@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # a script that installs nginx, configures index.html, and other edits
-apt update -y && sudo apt install -y nginx
+sudo apt update -y && sudo apt install -y nginx
 echo "Holberton School" > /var/www/html/index.html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 newtext="rewrite ^/redirect_me https://www.youtube.com/watch?v=jyknCVczn3Q permanent;"
 sed -i "/listen 80 default_server/a $newtext" /etc/nginx/sites-available/default
 sed -i "s+#error_page 404 /404.html;+error_page 404 /custom_404.html;+g" /etc/nginx/sites-available/default
+sudo ufw allow 'Nginx HTTP'
 service nginx start
