@@ -2,8 +2,7 @@
 # a script that installs nginx and configures index.html
 apt-get update -y && sudo apt-get install -y nginx &&
     mkdir -p /var/www/html/ &&
-    echo "Holberton School" > index.html &&
-    mv index.html /var/www/html/index.html &&
+    echo "Holberton School" | tee /var/www/html/index.html &&
     newtext="\trewrite ^/redirect_me https://www.youtube.com/watch?v=jyknCVczn3Q permanent;\n"
-sed -i "/^server {/a\ $newtext" /etc/nginx/sites-available/default &&
-    service nginx restart
+    sed -i "/^server {/a\ $newtext" /etc/nginx/sites-available/default &&
+    service nginx start

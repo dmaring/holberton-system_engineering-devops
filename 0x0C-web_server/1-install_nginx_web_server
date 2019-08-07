@@ -2,5 +2,5 @@
 # a script that installs nginx and configures index.html
 sudo apt-get install -y nginx &&
     sudo mkdir -p /var/www/html/ &&
-    sudo echo "Holberton School" > index.html &&
-    sudo mv index.html /var/www/html/index.html
+    echo "Holberton School" | tee /var/www/html/index.html &&
+    service nginx start
