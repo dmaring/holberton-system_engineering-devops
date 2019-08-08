@@ -1,3 +1,4 @@
+# puppet file that installs and configures nginx
 package {'nginx':
   ensure => installed,
 }
