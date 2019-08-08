@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>404 Page Not Found</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta charset="utf-8">
+    </head>
+    <body style="margin:0;padding:0;">
+        <header>
+            <h1>404 Mutombo says no no no...</h1>
+        </header>
+        <section class='four_container'>
+            <article>
+                <img src="mutombo.gif">
+            </article>  
+        </section>
+        <footer></footer>
+    </body>
+</html>
