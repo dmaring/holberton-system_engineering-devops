@@ -1,10 +1,11 @@
 # puppet file that creates a custom HTTP header response
 package {'nginx':
   ensure  => installed,
+  name    => 'nginx',
 }
 
 file_line { 'header':
-  ensure   => 'present',
+  ensure   => present,
   path     => '/etc/nginx/sites-available/default',
   after    => 'server_name _;',
   line     => 'add_header X-Served-By "$HOSTNAME";',
