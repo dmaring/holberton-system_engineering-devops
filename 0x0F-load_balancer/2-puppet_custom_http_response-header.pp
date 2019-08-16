@@ -1,13 +1,14 @@
-# puppet file that installs and configures nginx
+# puppet file that creates a custom HTTP header response
 package {'nginx':
   ensure  => installed,
 }
 
-file_line { 'add_header':
-  ensure => 'present',
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'server_name _',
-  line   => 'add_header X-Served-By "$HOSTNAME";',
+file_line { 'header':
+  ensure   => 'present',
+  path     => '/etc/nginx/sites-available/default',
+  after    => 'server_name _;',
+  line     => 'add_header X-Served-By "$HOSTNAME";',
+  multiple => true
 }
 
 service {'nginx':
