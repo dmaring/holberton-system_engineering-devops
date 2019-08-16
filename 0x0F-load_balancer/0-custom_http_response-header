@@ -3,6 +3,6 @@
 apt update -y && sudo apt install -y nginx
 echo "Holberton School" > /var/www/html/index.html
 re_text="rewrite ^/redirect_me https://www.youtube.com/watch?v=jyknCVczn3Q permanent;"
-h_text="add_header X-Served-By $HOSTNAME"
-sed -i "/listen 80 default_server/a \t$re_text\n\t$h_text" /etc/nginx/sites-available/default
+h_text="add_header X-Served-By $HOSTNAME;"
+sed -i "/listen [::]:80 default_server;/a $re_text\n\t$h_text" /etc/nginx/sites-available/default
 service nginx start
