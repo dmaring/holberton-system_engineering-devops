@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#a script to run nginx as nginx
+#change ownership of nginx.conf
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 755 -R /etc/nginx
+#Kill any apache2 processes
+pkill -f apache2
+sed -i 's/#user www;/user nginx;/' /etc/nginx/nginx.conf
+sed -i 's/listen 80 default_server/listen 8080 default_server;/' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:80 default_server ipv6only=on;/listen \[::\]:8080 default_server ipv6only=on;/' /etc/nginx/sites-available/default
+
+su - nginx -c "service nginx stop"
+su - nginx -c "service nginx start"
+
+
+/etc/init.d/nginx start
