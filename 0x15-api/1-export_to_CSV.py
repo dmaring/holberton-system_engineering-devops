@@ -15,20 +15,20 @@ def get_todo_info():
     r = requests.get('https://jsonplaceholder.typicode.com/users?id={}'
                      .format(user_id))
     user = json.loads(r.text)
-    user_name = user[0]['username']
+    user_name = user[0].get('username')
 
     # GET /user/<id>/todos for todo info
     r = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
                      .format(user_id))
     todos = json.loads(r.text)
 
-    with open ('USER_ID.csv', 'w', newline='', encoding='utf-8') as fp:
+    with open('USER_ID.csv', 'w', newline='', encoding='utf-8') as fp:
         taskwriter = csv.writer(fp, quoting=csv.QUOTE_ALL)
         for task in todos:
             taskwriter.writerow(["{}".format(user_id),
                                  "{}".format(user_name),
-                                 "{}".format(task['completed']),
-                                 "{}".format(task['title'])])
+                                 "{}".format(task.get('completed')),
+                                 "{}".format(task.get('title'))])
 
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ def get_todo_info():
     r = requests.get('https://jsonplaceholder.typicode.com/users?id={}'
                      .format(user_id))
     user = json.loads(r.text)
-    user_name = user[0]['username']
+    user_name = user[0].get('username')
 
     # GET /user/<id>/todos for todo info
     r = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
@@ -25,8 +25,8 @@ def get_todo_info():
     dict_[user_id] = task_list
     for task in todos:
         task_d = {}
-        task_d['task'] = task['title']
-        task_d['completed'] = task['completed']
+        task_d['task'] = task.get('title')
+        task_d['completed'] = task.get('completed')
         task_d['username'] = user_name
         task_list.append(task_d)
 

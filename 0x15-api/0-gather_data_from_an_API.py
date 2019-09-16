@@ -14,7 +14,7 @@ def get_todo_info():
     r = requests.get('https://jsonplaceholder.typicode.com/users?id={}'
                      .format(user_id))
     user = json.loads(r.text)
-    user_name = user[0]['name']
+    user_name = user[0].get('name')
 
     # GET /user/<id>/todos for todo info
     r = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'
@@ -27,7 +27,7 @@ def get_todo_info():
         total_tasks += 1
         if task['completed'] is True:
             comp_tasks += 1
-            comp_titles.append(task['title'])
+            comp_titles.append(task.get('title'))
 
     print("Employee {} is done with tasks({}/{}):"
           .format(user_name, comp_tasks, total_tasks))
