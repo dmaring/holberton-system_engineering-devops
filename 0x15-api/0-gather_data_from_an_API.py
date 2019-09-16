@@ -32,7 +32,7 @@ def get_todo_info():
     print("Employee {} is done with tasks({}/{}):"
           .format(user_name, comp_tasks, total_tasks))
     for title in comp_titles:
-        print("\t{}".format(title))
+        print("\t {}".format(title))
 
 
 if __name__ == "__main__":
