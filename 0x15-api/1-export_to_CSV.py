@@ -22,7 +22,8 @@ def get_todo_info():
                      .format(user_id))
     todos = json.loads(r.text)
 
-    with open('USER_ID.csv', 'w', newline='', encoding='utf-8') as fp:
+    with open('{}.csv'.format(user_id),
+              'w', newline='', encoding='utf-8') as fp:
         taskwriter = csv.writer(fp, quoting=csv.QUOTE_ALL)
         for task in todos:
             taskwriter.writerow(["{}".format(user_id),
