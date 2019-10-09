@@ -1,5 +1,5 @@
-# This puppet manifest increases the number of workers for nginx
+# This puppet manifest changes the ULIMIT for nginx
 exec { 'sed file':
-  command => 'sed -i \'s/ULIMIT="-n 15"/ULIMIT="-n 4096"\' /etc/default/nginx; service nginx restart',
+  command => 'sed -i \'s/15/4096\' /etc/default/nginx; service nginx restart',
   path    => ['/bin', '/usr/sbin', '/usr/bin'],
 }
